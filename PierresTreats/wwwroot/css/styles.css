@@ -1,0 +1,34 @@
+
+header {
+  text-align: center;
+}
+
+.cardListName {
+  float: left;
+  font-size: 1.5rem;
+}
+
+.cardListButton {
+  float: right
+}
+
+.list-text {
+  float: left;
+  font-size: 1.25rem;
+}
+
+.list-button {
+  float: right
+}
+
+.card-body .list {
+  padding: 10px;
+}
+
+.home-form {
+  display: inline;
+}
+
+i.fas {
+  font-size: 1.5rem;
+}

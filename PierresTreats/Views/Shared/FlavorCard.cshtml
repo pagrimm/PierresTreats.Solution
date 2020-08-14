@@ -1,0 +1,30 @@
+@using Factory.Models;
+@model Factory.Models.Flavor;
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Flavor: @Html.ActionLink($"{Model.Name}", "Details", "Flavors", new { id = Model.FlavorId })</div>
+    <div class="cardListButton">
+      @using (Html.BeginForm("Delete", "Flavors", new {id = Model.FlavorId}))
+      {
+        <button type="submit" class="btn btn-danger">Delete Flavor</button>
+      }
+    </div>
+    <div class="cardListButton">
+      @using (Html.BeginForm("Edit", "Flavors", new {id = Model.FlavorId}, FormMethod.Get))
+      {
+        <button type="submit" class="btn btn-warning mr-3">Edit Flavor</button>
+      }
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <h5 class="card-title">Treats for this Flavor:</h5>
+      @Html.Partial("TreatList", Model)
+    </div>
+    @using (Html.BeginForm("AddTreat", "Flavors", new {id = Model.FlavorId}, FormMethod.Get))
+    {
+      <button type="submit" class="btn btn-success mr-3">Add Treat</button>
+    }
+  </div>
+</section>

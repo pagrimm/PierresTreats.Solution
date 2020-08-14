@@ -1,0 +1,24 @@
+@using Factory.Models;
+@model Factory.Models.Treat;
+
+@if (Model.Flavors.Count == 0)
+{
+  <p>There are no flavors for this treat.</p>
+}
+@foreach (var join in Model.Flavors)
+{
+  <div class="card mb-3">
+    <div class="card-body list">
+      <div class="list-text mt-1">
+        <i class="fas fa-user-cog mr-1"></i>
+        @Html.ActionLink($"{join.Flavor.Name}", "Details", "Flavors", new { id = join.Flavor.FlavorId })
+      </div>
+      <div class="list-button">
+        @using (Html.BeginForm("RemoveFlavor", "Treats", new {FlavorId = join.Flavor.FlavorId, TreatId = join.Treat.TreatId }))
+        {
+          <button type="submit" class="btn btn-danger mr-3"><i class="fas fa-times"></i></button>
+        }
+      </div>
+    </div>
+  </div>
+}
