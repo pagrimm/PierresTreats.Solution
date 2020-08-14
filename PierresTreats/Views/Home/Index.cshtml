@@ -20,14 +20,12 @@
       }
       else
       {
-        @using (Html.BeginForm("Login", "Account", FormMethod.Get))
-        {
-          <button type="submit" class="btn btn-success mb-3">Log In</button>
-        }
-        @using (Html.BeginForm("Register", "Account", FormMethod.Get))
-        {
+        <form action="/account/login" method="get" class="home-form">
+          <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+        <form action="/account/register" method="get" class="home-form">
           <button type="submit" class="btn btn-primary">Register</button>
-        }
+        </form>
       }
     </div>
   </section>  

@@ -20,7 +20,7 @@ Weekly independent project for Epicodus, an MVC web application to market Pierre
 * For Mac users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484914
 * For Windows users, download MySQL here: https://dev.mysql.com/downloads/file/?id=484919
 * Install MySQL and set the system path, more information on how to do that can be found here: https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql
-* Clone the GitHub repository by running `git clone https://github.com/pagrimm/Factory.Solution.git` in the terminal
+* Clone the GitHub repository by running `git clone https://github.com/pagrimm/PierresTreats.Solution.git` in the terminal
 * Navigate to the newly created `PierresTreats.Solution` folder
 * Navigate to the `PierresTreats` subfolder
 * Run `dotnet restore` to get application dependencies
@@ -35,6 +35,7 @@ C#
 .NET Core 2.2  
 ASP.NET Core MVC  
 Entity Framework Core 2.2.6 
+Pomelo Entity Framework Core 2.2.0
 
 ## Legal
 
