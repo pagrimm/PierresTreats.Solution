@@ -8,5 +8,18 @@ namespace PierresTreats.Controllers
     {
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Index(string searchOption, string searchString)
+    {
+      if (searchOption == "treats")
+      {
+        return RedirectToAction ("Index", "Treats", new {searchQuery = searchString});
+      }
+      else
+      {
+        return RedirectToAction ("Index", "Flavors", new {searchQuery = searchString});
+      }
+    }
   }
 }
