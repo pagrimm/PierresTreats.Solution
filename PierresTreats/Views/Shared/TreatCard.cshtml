@@ -4,27 +4,33 @@
 <section class="card mb-3">
   <div class="card-header">
     <div class="cardListName">Treat: @Html.ActionLink($"{Model.Name}", "Details", "Treats", new { id = Model.TreatId })</div>
-    <div class="cardListButton">
-      @using (Html.BeginForm("Delete", "Treats", new {id = Model.TreatId}))
-      {
-        <button type="submit" class="btn btn-danger">Delete Treat</button>
-      }
-    </div>
-    <div class="cardListButton">
-      @using (Html.BeginForm("Edit", "Treats", new {id = Model.TreatId}, FormMethod.Get))
-      {
-        <button type="submit" class="btn btn-warning mr-3">Edit Treat</button>
-      }
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+      <div class="cardListButton">
+        @using (Html.BeginForm("Delete", "Treats", new {id = Model.TreatId}))
+        {
+          <button type="submit" class="btn btn-danger">Delete Treat</button>
+        }
+      </div>
+      <div class="cardListButton">
+        @using (Html.BeginForm("Edit", "Treats", new {id = Model.TreatId}, FormMethod.Get))
+        {
+          <button type="submit" class="btn btn-warning mr-3">Edit Treat</button>
+        }
+      </div>
+    }
   </div>
   <div class="card-body">
     <div class="card-text">
       <h5 class="card-title">Flavors for this treat:</h5>
       @Html.Partial("FlavorList", Model)
     </div>
-    @using (Html.BeginForm("AddFlavor", "Treats", new {id = Model.TreatId}, FormMethod.Get))
+    @if (User.Identity.IsAuthenticated)
     {
-      <button type="submit" class="btn btn-success mr-3">Add Flavor</button>
+      @using (Html.BeginForm("AddFlavor", "Treats", new {id = Model.TreatId}, FormMethod.Get))
+      {
+        <button type="submit" class="btn btn-success mr-3">Add Flavor</button>
+      }
     }
   </div>
 </section>
