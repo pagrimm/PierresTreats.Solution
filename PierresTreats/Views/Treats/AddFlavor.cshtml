@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresTreats.Models.Treat
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Add flavor for this treat: @Html.DisplayFor(model => model.Name)</div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.TreatId)
+
+        @Html.Label("Select Flavor")
+        @Html.DropDownList("FlavorId", (IEnumerable<SelectListItem>)ViewBag.FlavorId, new { @class = "form-control" })
+
+        <input type="submit" value="Save" class="btn btn-primary mt-3"/>
+      }
+    </div>
+  </div>
+</section>

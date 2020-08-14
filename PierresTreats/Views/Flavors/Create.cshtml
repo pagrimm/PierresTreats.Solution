@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresTreats.Models.Flavor
+
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Add Flavor</div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        <input type="submit" value="Add new flavor" class="btn btn-primary mt-3" />
+      }
+    </div>
+  </div>
+</section>
