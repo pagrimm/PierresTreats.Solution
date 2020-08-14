@@ -20,7 +20,7 @@
   <div class="card-body">
     <div class="card-text">
       <h5 class="card-title">Flavors for this treat:</h5>
-      @Html.Partial("TreatList", Model)
+      @Html.Partial("FlavorList", Model)
     </div>
     @using (Html.BeginForm("AddFlavor", "Treats", new {id = Model.TreatId}, FormMethod.Get))
     {

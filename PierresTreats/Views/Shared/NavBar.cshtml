@@ -27,5 +27,12 @@
       <input class="form-control mr-sm-2" name="searchString" id="searchString" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    @if (User.Identity.IsAuthenticated)
+      {
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+          <div class="ml-3">Current User: @User.Identity.Name <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log Out</button></div>
+        }
+      }
   </div>
 </nav>

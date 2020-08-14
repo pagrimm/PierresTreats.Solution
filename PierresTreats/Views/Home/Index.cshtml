@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<section class="card mb-3">
+    <div class="card-header">
+      <div class="cardListName">Manage Flavors and Treats</div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Welcome to Pierre's Sweet and Savory Treats</h5>
+      <p>Select an option from the navigation bar to browse the site or add a flavor or treat to get started.</p>
+      <form action="/flavors/create" method="get" class="home-form">
+        <button type="submit" class="btn btn-primary">Add New Flavor</button>
+      </form>
+      <form action="/treats/create" method="get" class="home-form">
+        <button type="submit" class="btn btn-primary">Add New Treat</button>
+      </form>
+    </div>
+  </section>  

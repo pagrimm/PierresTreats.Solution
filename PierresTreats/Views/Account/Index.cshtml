@@ -1,23 +1,33 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @using System.Security.Claims
 
-<h2>Authentication with Identity</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
-}
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
-}
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<section class="card mb-3">
+    <div class="card-header">
+        <div class="cardListName">Account Management</div>
+    </div>
+    <div class="card-body">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>Current User: @User.Identity.Name</p>
+            @using (Html.BeginForm("LogOff", "Account"))
+            {
+                <button type="submit" class="btn btn-primary">Log Out</button>
+            }
+        }
+        else
+        {
+            <p>Log in or create a new account:</p>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Get))
+            {
+                <button type="submit" class="btn btn-success mb-3">Log In</button>
+            }
+            @using (Html.BeginForm("Register", "Account", FormMethod.Get))
+            {
+                <button type="submit" class="btn btn-primary">Register</button>
+            }
+        }
+    </div>
+</section>  

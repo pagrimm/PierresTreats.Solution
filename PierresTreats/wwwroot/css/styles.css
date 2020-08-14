@@ -29,6 +29,6 @@ header {
   display: inline;
 }
 
-i.fas {
+i.fas, .far {
   font-size: 1.5rem;
 }

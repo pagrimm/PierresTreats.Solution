@@ -1,4 +1,3 @@
-
 @{
   Layout = "_Layout";
 }
@@ -7,18 +6,25 @@
 
 @model RegisterViewModel
 
-<h2>Register a new user</h2>
-<hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    @Html.LabelFor(user => user.Email)
-    @Html.TextBoxFor(user => user.Email)
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Log in with your account</div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+      {
+        @Html.LabelFor(user => user.Email)
+        @Html.TextBoxFor(user => user.Email, new { @class = "form-control" })
 
-    @Html.LabelFor(user => user.Password)
-    @Html.PasswordFor(user => user.Password)
+        @Html.LabelFor(user => user.Password)
+        @Html.PasswordFor(user => user.Password, new { @class = "form-control" })
 
-    @Html.LabelFor(user => user.ConfirmPassword)
-    @Html.PasswordFor(user => user.ConfirmPassword)
+        @Html.LabelFor(user => user.ConfirmPassword)
+        @Html.PasswordFor(user => user.ConfirmPassword, new { @class = "form-control" })
 
-    <input type="submit" value="Register" />
-}
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
+      }
+    </div>
+  </div>
+</section>

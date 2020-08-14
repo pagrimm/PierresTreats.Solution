@@ -7,15 +7,22 @@
 
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Email)
-    @Html.TextBoxFor(model => model.Email)
+<section class="card mb-3">
+  <div class="card-header">
+    <div class="cardListName">Log in with your account</div>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
 
-    @Html.LabelFor(model => model.Password)
-    @Html.PasswordFor(model => model.Password)
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
 
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
+        <button type="submit" class="btn btn-primary mt-3">Log In</button>
+      }
+    </div>
+  </div>
+</section>
