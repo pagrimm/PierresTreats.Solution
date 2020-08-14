@@ -3,6 +3,7 @@ using PierresTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace PierresTreats.Controllers
     private readonly PierresTreatsContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public TreatsController(UserManager<ApplicationUser> userManager, ToDoListContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, PierresTreatsContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -30,7 +31,7 @@ namespace PierresTreats.Controllers
         treatQuery = treatQuery.Where(treat => treat.Name.ToLower().Contains(searchQuery.ToLower()));
         ViewBag.SearchFlag = 1;
       }
-      IEnumerable<Engineer> treatList = treatQuery.ToList().OrderBy(treat => treat.Name);
+      IEnumerable<Treat> treatList = treatQuery.ToList().OrderBy(treat => treat.Name);
       return View(treatList);
     }
 
@@ -50,8 +51,8 @@ namespace PierresTreats.Controllers
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
-          .Include(treat => treat.Treats)
-          .ThenInclude(join => join.Treat)
+          .Include(treat => treat.Flavors)
+          .ThenInclude(join => join.Flavor)
           .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }
@@ -81,9 +82,9 @@ namespace PierresTreats.Controllers
 
     public ActionResult AddFlavor(int id)
     {
-      Treat thisTreat = _db.Treat.FirstOrDefault(treat => treat.TreatId == id);
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
-      return View(thisFlavor);
+      return View(thisTreat);
     }
 
     [HttpPost]

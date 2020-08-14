@@ -5,9 +5,9 @@ namespace PierresTreats.Models
 {
   public class PierresTreatsContext : IdentityDbContext<ApplicationUser>
   {
-    public virtual DbSet<Engineer> Treats { get; set; }
-    public DbSet<Machine> Flavors { get; set; }
-    public DbSet<EngineerMachine> TreatFlavor { get; set; }
+    public virtual DbSet<Treat> Treats { get; set; }
+    public DbSet<Flavor> Flavors { get; set; }
+    public DbSet<TreatFlavor> TreatFlavor { get; set; }
 
     public PierresTreatsContext(DbContextOptions options) : base(options) { }
   }

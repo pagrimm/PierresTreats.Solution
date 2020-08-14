@@ -26,11 +26,11 @@ namespace PierresTreats
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<ToDoListContext>(options => options
+        .AddDbContext<PierresTreatsContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ToDoListContext>()
+        .AddEntityFrameworkStores<PierresTreatsContext>()
         .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
